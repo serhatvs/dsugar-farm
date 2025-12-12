@@ -1,0 +1,21 @@
+[package]
+name = "hackthon"
+version = "0.1.0"
+edition = "2024.beta"
+# license = "MIT"
+# authors = ["Your Name <you@example.com>"]
+
+[dependencies]
+# Sui is automatically included; explicit inclusion removed to avoid duplicate module errors in tests
+
+[addresses]
+# Map named addresses to values used in your source modules when you use @name instead of a literal address.
+# If your source uses a literal numeric address (e.g., 0xDEADBEEF), this mapping is optional but helpful for development.
+sugar_farm = "0xDEADBEEF"
+
+[dev-dependencies]
+# Add test-only dependencies here
+
+[dev-addresses]
+# Overwrite addresses for dev/test builds, example:
+# sugar_farm = "0x1"
