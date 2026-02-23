@@ -19,11 +19,11 @@ Her gün yapılacak temel işler ve projenin tamamına yayılmış detaylı gün
 ## Tarihli Günlük Takvim
 
 ### 23.02.2026
-- [ ] Proje dosya yapısının oluşturulması
-- [ ] Gerekli araçların ve ortamın kurulumu
-- [ ] Versiyon kontrol sistemi (git) başlatılması
-- [ ] İlk dökümantasyonun hazırlanması
-- [ ] Hedeflerin ve yol haritasının belirlenmesi
+- [X] Proje dosya yapısının oluşturulması
+- [X] Gerekli araçların ve ortamın kurulumu
+- [X] Versiyon kontrol sistemi (git) başlatılması
+- [X] İlk dökümantasyonun hazırlanması
+- [X] Hedeflerin ve yol haritasının belirlenmesi
 
 ### 24.02.2026
 - [ ] Ana modül ve klasörlerin oluşturulması

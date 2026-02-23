@@ -2,6 +2,29 @@
 
 A complete decentralized farming game built on the Sui blockchain with Move smart contracts and a React TypeScript frontend.
 
+## 🎯 Proje Hedefleri
+
+- Gerçek zamanlı, zincir üstü bir çiftlik oyunu deneyimi sunmak
+- Sui Move ile güvenli ve şeffaf akıllı kontrat altyapısı oluşturmak
+- Kullanıcıların cüzdanlarıyla kolayca etkileşime geçebileceği bir frontend sağlamak
+- Oyun içi varlıkların (tarlalar, şekerler) zincir üstünde yönetilmesi
+- Testnet ve mainnet üzerinde sorunsuz çalışacak şekilde geliştirme yapmak
+- Açık kaynak ve katkıya açık bir proje olarak topluluk desteğiyle büyümek
+
+## 🗺️ Yol Haritası
+
+1. Proje dosya yapısının oluşturulması ve temel kurulumların tamamlanması
+2. Move kontrat ana şablonunun ve temel veri yapılarının yazılması
+3. Frontend temel bileşenlerinin ve arayüzünün hazırlanması
+4. Test altyapısının kurulması (hem Move hem frontend için)
+5. Temel oyun mekaniklerinin (ekim, büyüme, hasat, satış) zincir üstünde çalışır hale getirilmesi
+6. Cüzdan entegrasyonu ve canlı veri güncellemelerinin sağlanması
+7. Hata yönetimi, validasyon ve güvenlik kontrollerinin eklenmesi
+8. Gelişmiş fonksiyonlar ve kullanıcı arayüzü iyileştirmeleri
+9. Kontrat ve frontend entegrasyonunun tamamlanması, API noktalarının hazırlanması
+10. Son kullanıcı testleri, geri bildirimlerin toplanması ve iyileştirmeler
+11. Nihai dökümantasyon ve projenin yayına alınması
+
 ## 📋 Project Structure
 
 ```
