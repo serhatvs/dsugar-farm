@@ -26,47 +26,47 @@ Her gün yapılacak temel işler ve projenin tamamına yayılmış detaylı gün
 - [X] Hedeflerin ve yol haritasının belirlenmesi
 
 ### 24.02.2026
-- [ ] Ana modül ve klasörlerin oluşturulması
-- [ ] Move kontrat ana şablonunun yazılması
-- [ ] Frontend temel dosya yapısının hazırlanması
-- [ ] package.json ve temel bağımlılıkların kurulumu
-- [ ] İlk günlük değerlendirme ve notların eklenmesi
+- [x] Ana modül ve klasörlerin oluşturulması
+- [x] Move kontrat ana şablonunun yazılması
+- [x] Frontend temel dosya yapısının hazırlanması
+- [x] package.json ve temel bağımlılıkların kurulumu
+- [x] İlk günlük değerlendirme ve notların eklenmesi
 
 ### 25.02.2026
-- [ ] Move kontratında temel veri yapılarının eklenmesi
-- [ ] Frontend ana sayfa ve ilk bileşenin oluşturulması
-- [ ] Test altyapısının kurulması (hem Move hem frontend için)
-- [ ] README güncellemesi
+- [x] Move kontratında temel veri yapılarının eklenmesi
+- [x] Frontend ana sayfa ve ilk bileşenin oluşturulması
+- [x] Test altyapısının kurulması (hem Move hem frontend için)
+- [x] README güncellemesi
 
 ### 26.02.2026
-- [ ] Move kontratında temel fonksiyonların yazılması
-- [ ] Frontend'de FieldManager bileşeninin geliştirilmesi
-- [ ] İlk testlerin yazılması ve çalıştırılması
-- [ ] Kod gözden geçirme
+- [X] Move kontratında temel fonksiyonların yazılması
+- [X] Frontend'de FieldManager bileşeninin geliştirilmesi
+- [X] İlk testlerin yazılması ve çalıştırılması
+- [X] Kod gözden geçirme
 
 ### 27.02.2026
-- [ ] Move kontratında hata yönetimi ve validasyon eklenmesi
-- [ ] Frontend'de SugarInventory bileşeninin geliştirilmesi
-- [ ] Testlerin genişletilmesi
-- [ ] Dökümantasyon güncellemesi
+- [X] Move kontratında hata yönetimi ve validasyon eklenmesi
+- [X] Frontend'de SugarInventory bileşeninin geliştirilmesi
+- [X] Testlerin genişletilmesi
+- [X] Dökümantasyon güncellemesi
 
 ### 28.02.2026
-- [ ] Move kontratında gelişmiş fonksiyonların eklenmesi
-- [ ] Frontend'de kullanıcı arayüzü iyileştirmeleri
-- [ ] Manuel testler ve hata ayıklama
-- [ ] Günlük değerlendirme
+- [X] Move kontratında gelişmiş fonksiyonların eklenmesi
+- [X] Frontend'de kullanıcı arayüzü iyileştirmeleri
+- [X] Manuel testler ve hata ayıklama
+- [x] Günlük değerlendirme
 
 ### 29.02.2026
-- [ ] Kontrat ve frontend entegrasyonunun başlatılması
-- [ ] API veya bağlantı noktalarının hazırlanması
-- [ ] Entegrasyon testlerinin yazılması
-- [ ] Kodda TODO/FIXME kontrolleri
+- [X] Kontrat ve frontend entegrasyonunun başlatılması
+- [X] API veya bağlantı noktalarının hazırlanması
+- [X] Entegrasyon testlerinin yazılması
+- [X] Kodda TODO/FIXME kontrolleri
 
 ### 01.03.2026
-- [ ] Entegrasyonun tamamlanması ve test edilmesi
-- [ ] Kullanıcı senaryolarının test edilmesi
-- [ ] Log ve checkpoint dosyalarının kontrolü
-- [ ] Dökümantasyonun güncellenmesi
+- [X] Entegrasyonun tamamlanması ve test edilmesi
+- [X] Kullanıcı senaryolarının test edilmesi
+- [X] Log ve checkpoint dosyalarının kontrolü
+- [X] Dökümantasyonun güncellenmesi
 
 ### 02.03.2026
 - [ ] Son kullanıcı testleri ve geri bildirimlerin toplanması

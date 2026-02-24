@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { useCurrentAccount, useSignAndExecuteTransactionBlock } from '@mysten/dapp-kit'
+import { SuiClient, getFullnodeUrl } from '@mysten/sui.js/client'
+import { TransactionBlock } from '@mysten/sui.js/transactions'
 import './SugarInventory.css'
 
 interface SugarItem {
@@ -10,36 +13,89 @@ interface SugarItem {
 export default function SugarInventory() {
   const [inventory, setInventory] = useState<SugarItem[]>([])
   const [loading, setLoading] = useState(false)
-  const [totalSugar] = useState(0)
+  const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
+  const currentAccount = useCurrentAccount()
+  const { mutateAsync: signAndExecute } = useSignAndExecuteTransactionBlock()
 
-  const sellSugar = async (sugarId: string, amount: number) => {
-    setLoading(true)
-    try {
-      console.log('Selling sugar:', sugarId, amount)
-      // Transaction would be built and executed here
-      alert(`Sell functionality would be implemented with transaction builder\nSelling ${amount} sugar`)
-    } catch (error) {
-      console.error('Error selling sugar:', error)
-    } finally {
-      setLoading(false)
-    }
+  const PACKAGE_ID = '0xdeadbeef'
+  const MODULE = 'sugar_farm'
+
+  const showToast = (type: 'success' | 'error', message: string) => {
+    setToast({ type, message })
+    setTimeout(() => setToast(null), 3500)
   }
 
+  // Zincirden sugar objelerini çek
   const loadInventory = async () => {
+    if (!currentAccount) return
     setLoading(true)
     try {
-      console.log('Loading inventory...')
-      // Query blockchain for user's sugar objects
-      alert('Inventory loading would be implemented with SUI RPC queries')
+      const client = new SuiClient({ url: getFullnodeUrl('testnet') })
+      const objects = await client.getOwnedObjects({
+        owner: currentAccount.address,
+        filter: { StructType: `${PACKAGE_ID}::${MODULE}::Sugar` },
+        options: { showContent: true },
+      })
+      const sugars: SugarItem[] = objects.data.map(obj => {
+        const content = (obj.data as any)?.content?.fields
+        return {
+          id: obj.data.objectId,
+          owner: content.owner,
+          amount: Number(content.amount),
+        }
+      })
+      setInventory(sugars)
     } catch (error) {
+      showToast('error', 'Şekerler yüklenirken hata oluştu!')
       console.error('Error loading inventory:', error)
     } finally {
       setLoading(false)
     }
   }
 
+  // Zincire sugar satışı işlemi gönder
+  const sellSugar = async (sugarId: string, amount: number) => {
+    if (!currentAccount) {
+      showToast('error', 'Cüzdan bağlı değil!')
+      return
+    }
+    setLoading(true)
+    try {
+      const txb = new TransactionBlock()
+      txb.moveCall({
+        target: `${PACKAGE_ID}::${MODULE}::sell_sugar`,
+        arguments: [txb.object(sugarId), txb.object('0x6')], // 0x6: Clock objesi (örnek, gerçek clock id kullanılmalı)
+      })
+      const result = await signAndExecute({
+        transactionBlock: txb,
+        options: { showEffects: true, showEvents: true },
+      })
+      if (result?.effects?.status.status === 'success') {
+        showToast('success', 'Şeker başarıyla satıldı!')
+        await loadInventory()
+      } else {
+        showToast('error', 'Şeker satılamadı!')
+      }
+    } catch (error) {
+      showToast('error', 'Satış sırasında hata oluştu: ' + (error as Error).message)
+      console.error('Error selling sugar:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  React.useEffect(() => {
+    loadInventory()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentAccount])
+
+  const totalSugar = inventory.reduce((sum, item) => sum + item.amount, 0)
+
   return (
     <div className="sugar-inventory">
+      {toast && (
+        <div className={`toast ${toast.type}`}>{toast.message}</div>
+      )}
       <div className="inventory-header">
         <div>
           <h2>Sugar Inventory</h2>
